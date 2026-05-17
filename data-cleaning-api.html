@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Cleaning API - Automate Data Cleaning & Normalization</title>
+<meta name="description" content="Automate data cleaning: remove duplicates, trim whitespace, normalize Excel and CSV data via REST API.">
+<meta name="keywords" content="data cleaning api, automate data cleaning, excel data normalization api">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,system-ui,sans-serif;line-height:1.6;color:#333;max-width:800px;margin:0 auto;padding:20px}
+h1{font-size:2em;margin-bottom:10px;color:#1a1a1a}
+h2{font-size:1.4em;margin:30px 0 10px;color:#2a2a2a}
+.lead{font-size:1.15em;color:#555;margin-bottom:20px}
+pre{background:#f5f5f5;padding:15px;border-radius:5px;overflow-x:auto;font-size:0.9em}
+code{font-family:'Courier New',monospace}
+ul{padding-left:20px;margin:10px 0}
+li{margin:5px 0}
+a{color:#2563eb;text-decoration:none}
+a:hover{text-decoration:underline}
+.btn{display:inline-block;background:#2563eb;color:#fff;padding:10px 24px;border-radius:5px;margin:20px 0;font-weight:bold}
+.btn:hover{background:#1d4ed8;text-decoration:none}
+hr{margin:40px 0}
+</style>
+</head>
+<body>
+<h1>Data Cleaning API - Automate Data Cleaning & Normalization</h1>
+
+<h2>Automated Data Cleaning API</h2>
+<p class="lead">Stop writing one-off scripts for data cleaning. Use our API to automate common data cleaning tasks.</p>
+
+<h3>What You Can Clean</h3>
+<ul>
+<li><strong>Duplicate rows</strong> in Excel files</li>
+<li><strong>Whitespace</strong> — trim leading/trailing spaces</li>
+<li><strong>Empty cells and rows</strong></li>
+<li><strong>Encoding issues</strong> in CSV files</li>
+<li><strong>Inconsistent formatting</strong></li>
+</ul>
+
+<h3>Excel Cleaning</h3>
+<pre>curl -X POST http://[2409:893d:dcd:8c60:3058:eb94:1d9:c7fa]:5000/api/v1/excel/clean \
+  -H "X-API-Key: YOUR_KEY" \
+  -F "file=@dirty_data.xlsx" -o clean_data.xlsx</pre>
+
+<h3>CSV Cleaning</h3>
+<pre>curl -X POST http://[2409:893d:dcd:8c60:3058:eb94:1d9:c7fa]:5000/api/v1/csv/clean \
+  -H "X-API-Key: YOUR_KEY" \
+  -F "file=@messy.csv" -o clean.csv</pre>
+
+<p><a href="http://[2409:893d:dcd:8c60:3058:eb94:1d9:c7fa]:5000/register" class="btn">Get Free API Key →</a></p>
+<hr>
+<footer><a href="/">DocuForge API Home</a> | <a href="https://github.com/rnhowcla/docuforge-api">GitHub</a> | <a href="http://[2409:893d:dcd:8c60:3058:eb94:1d9:c7fa]:5000/register">Get API Key</a></footer>
+</body>
+</html>
