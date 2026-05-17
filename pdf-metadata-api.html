@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF Metadata API - Extract PDF Info Programmatically</title>
+<meta name="description" content="Extract PDF metadata including page count, author, title, and creation date via REST API.">
+<meta name="keywords" content="pdf metadata api, extract pdf info, get pdf page count api">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,system-ui,sans-serif;line-height:1.6;color:#333;max-width:800px;margin:0 auto;padding:20px}
+h1{font-size:2em;margin-bottom:10px;color:#1a1a1a}
+h2{font-size:1.4em;margin:30px 0 10px;color:#2a2a2a}
+.lead{font-size:1.15em;color:#555;margin-bottom:20px}
+pre{background:#f5f5f5;padding:15px;border-radius:5px;overflow-x:auto;font-size:0.9em}
+code{font-family:'Courier New',monospace}
+ul{padding-left:20px;margin:10px 0}
+li{margin:5px 0}
+a{color:#2563eb;text-decoration:none}
+a:hover{text-decoration:underline}
+.btn{display:inline-block;background:#2563eb;color:#fff;padding:10px 24px;border-radius:5px;margin:20px 0;font-weight:bold}
+.btn:hover{background:#1d4ed8;text-decoration:none}
+hr{margin:40px 0}
+</style>
+</head>
+<body>
+<h1>PDF Metadata API - Extract PDF Info Programmatically</h1>
+
+<h2>PDF Metadata Extraction API</h2>
+<p class="lead">Extract metadata from PDF files without any PDF library. Get page count, author, title, subject, and creation date.</p>
+
+<h3>Example</h3>
+<pre>curl -X POST http://[2409:893d:dcd:8c60:3058:eb94:1d9:c7fa]:5000/api/v1/pdf/metadata \
+  -H "X-API-Key: YOUR_KEY" \
+  -F "file=@document.pdf"</pre>
+
+<h3>Response Example</h3>
+<pre>{
+  "pages": 42,
+  "author": "John Doe",
+  "title": "Annual Report 2024",
+  "subject": "Financial Summary",
+  "creator": "Microsoft Word",
+  "created": "2024-01-15T10:30:00Z"
+}</pre>
+
+<h3>Python</h3>
+<pre>import requests
+resp = requests.post(
+    "http://[2409:893d:dcd:8c60:3058:eb94:1d9:c7fa]:5000/api/v1/pdf/metadata",
+    headers={"X-API-Key": "your_key"},
+    files={"file": open("doc.pdf", "rb")}
+)
+print(resp.json())</pre>
+
+<p><a href="http://[2409:893d:dcd:8c60:3058:eb94:1d9:c7fa]:5000/register" class="btn">Get Free API Key →</a></p>
+<hr>
+<footer><a href="/">DocuForge API Home</a> | <a href="https://github.com/rnhowcla/docuforge-api">GitHub</a> | <a href="http://[2409:893d:dcd:8c60:3058:eb94:1d9:c7fa]:5000/register">Get API Key</a></footer>
+</body>
+</html>
