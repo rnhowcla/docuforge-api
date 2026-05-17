@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Documentation — DocuForge API{% endblock %}
+{% block content %}
+<section class="docs">
+    <div class="container">
+        <h1>Documentation</h1>
+        <p>All requests require an <code>X-API-Key</code> header. Get your key from the dashboard.</p>
+
+        <h2>Excel Endpoints</h2>
+        <div class="endpoint">
+            <h3><code>POST /api/v1/excel/clean</code></h3>
+            <p>Upload an Excel file, get back a cleaned version (deduplicated, whitespace trimmed).</p>
+        </div>
+        <div class="endpoint">
+            <h3><code>POST /api/v1/excel/to-csv</code></h3>
+            <p>Convert Excel to CSV. Optional <code>sheet_name</code> form field.</p>
+        </div>
+        <div class="endpoint">
+            <h3><code>POST /api/v1/excel/format</code></h3>
+            <p>Auto-fit column widths, add header styling.</p>
+        </div>
+
+        <h2>CSV Endpoints</h2>
+        <div class="endpoint">
+            <h3><code>POST /api/v1/csv/to-excel</code></h3>
+            <p>Convert CSV to formatted Excel. Optional <code>delimiter</code> field (default comma).</p>
+        </div>
+        <div class="endpoint">
+            <h3><code>POST /api/v1/csv/clean</code></h3>
+            <p>Clean CSV: trim cells, remove empty rows.</p>
+        </div>
+
+        <h2>PDF Endpoints</h2>
+        <div class="endpoint">
+            <h3><code>POST /api/v1/pdf/extract-text</code></h3>
+            <p>Extract text from PDF. Optional <code>page_range</code> (e.g., "1-3,5").</p>
+        </div>
+        <div class="endpoint">
+            <h3><code>POST /api/v1/pdf/metadata</code></h3>
+            <p>Get PDF metadata (pages, author, title).</p>
+        </div>
+        <div class="endpoint">
+            <h3><code>POST /api/v1/pdf/merge</code></h3>
+            <p>Merge multiple PDFs. Send multiple files in the <code>files</code> field.</p>
+        </div>
+
+        <p style="margin-top: 2rem;">For full API reference with request/response examples, visit the <a href="/docs" target="_blank">Swagger UI</a>.</p>
+    </div>
+</section>
+{% endblock %}

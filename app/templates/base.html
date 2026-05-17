@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}DocuForge API{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="brand">DocuForge API</a>
+            <div class="nav-links">
+                <a href="/#features">Features</a>
+                <a href="/pricing">Pricing</a>
+                <a href="/docs-page">Docs</a>
+                <a href="/docs" target="_blank">API Reference</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 DocuForge API. Built for developers.</p>
+        </div>
+    </footer>
+</body>
+</html>
