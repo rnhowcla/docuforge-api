@@ -5,7 +5,7 @@ load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./app.db")
 SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-change-in-production")
-DOMAIN = os.getenv("DOMAIN", "http://localhost:8000")
+DOMAIN = os.getenv("DOMAIN", "http://[2409:893d:dcd:8c60:3058:eb94:1d9:c7fa]:5000")
 
 # Rate limits (per API key)
 FREE_TIER_LIMIT = 50

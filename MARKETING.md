@@ -16,7 +16,7 @@
 
 技术栈：Python Flask + SQLAlchemy，代码已经在 GitHub 开源。
 
-免费注册拿 Key：[URL]
+免费注册拿 Key：http://[2409:893d:dcd:8c60:3058:eb94:1d9:c7fa]:5000/register
 GitHub：[https://github.com/rnhowcla/docuforge-api](https://github.com/rnhowcla/docuforge-api)
 
 求各位开发者大佬试用给反馈，提意见直接 issue 或者回复里说。
@@ -54,9 +54,9 @@ Document processing API for developers. Clean Excel, convert CSV, extract PDF te
 
 ## Quick Start
 
-Register at [SITE_URL]/register to get your free API key. 50 calls/month free.
+Register at http://[2409:893d:dcd:8c60:3058:eb94:1d9:c7fa]:5000/register to get your free API key. 50 calls/month free.
 
-curl -X POST https://SITE_URL/api/v1/excel/clean \
+curl -X POST http://[2409:893d:dcd:8c60:3058:eb94:1d9:c7fa]:5000/api/v1/excel/clean \
   -H "X-API-Key: YOUR_KEY" \
   -F "file=@data.xlsx"
 
