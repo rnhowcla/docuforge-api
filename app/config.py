@@ -11,3 +11,6 @@ DOMAIN = os.getenv("DOMAIN", "http://localhost:8000")
 FREE_TIER_LIMIT = 50
 PRO_TIER_LIMIT = 1000
 BUSINESS_TIER_LIMIT = 5000
+
+# Admin
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "admin123")

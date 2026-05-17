@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard — DocuForge{% endblock %}
+{% block content %}
+<section class="docs" style="padding: 2rem 0;">
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h1>Admin Dashboard</h1>
+            <a href="/admin/logout" class="btn btn-secondary" style="font-size:0.85rem;">Logout</a>
+        </div>
+
+        <div class="feature-grid" style="margin: 1.5rem 0;">
+            <div class="feature-card">
+                <h3>{{ total_users }}</h3>
+                <p>Total Users</p>
+            </div>
+            <div class="feature-card">
+                <h3>{{ total_calls }}</h3>
+                <p>Total API Calls</p>
+            </div>
+            <div class="feature-card">
+                <h3>{{ free_count }}</h3>
+                <p>Free Tier</p>
+            </div>
+            <div class="feature-card">
+                <h3>{{ pro_count + business_count }}</h3>
+                <p>Paid Users</p>
+            </div>
+        </div>
+
+        <h2>Recent Signups</h2>
+        <table style="width:100%; border-collapse:collapse; margin-bottom:2rem;">
+            <tr style="background:#f3f4f6;">
+                <th style="padding:0.5rem;text-align:left;">Name</th>
+                <th style="padding:0.5rem;text-align:left;">Email</th>
+                <th style="padding:0.5rem;text-align:left;">Tier</th>
+                <th style="padding:0.5rem;text-align:left;">Calls</th>
+                <th style="padding:0.5rem;text-align:left;">Created</th>
+            </tr>
+            {% for u in recent_users %}
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:0.4rem 0.5rem;">{{ u.name }}</td>
+                <td style="padding:0.4rem 0.5rem;">{{ u.email or '-' }}</td>
+                <td style="padding:0.4rem 0.5rem;"><strong>{{ u.tier.value }}</strong></td>
+                <td style="padding:0.4rem 0.5rem;">{{ u.call_count }}</td>
+                <td style="padding:0.4rem 0.5rem;font-size:0.85rem;">{{ u.created_at.strftime('%m-%d %H:%M') }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Endpoint Usage</h2>
+        <table style="width:100%; border-collapse:collapse; margin-bottom:2rem;">
+            <tr style="background:#f3f4f6;">
+                <th style="padding:0.5rem;text-align:left;">Endpoint</th>
+                <th style="padding:0.5rem;text-align:left;">Recent Calls</th>
+            </tr>
+            {% for ep, count in endpoint_counts.items() %}
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:0.4rem 0.5rem;"><code>{{ ep }}</code></td>
+                <td style="padding:0.4rem 0.5rem;">{{ count }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Recent API Calls</h2>
+        <table style="width:100%; border-collapse:collapse;">
+            <tr style="background:#f3f4f6;">
+                <th style="padding:0.5rem;text-align:left;">Time</th>
+                <th style="padding:0.5rem;text-align:left;">Endpoint</th>
+                <th style="padding:0.5rem;text-align:left;">Status</th>
+            </tr>
+            {% for log in recent_logs[:20] %}
+            <tr style="border-bottom:1px solid #e5e7eb;">
+                <td style="padding:0.4rem 0.5rem;font-size:0.85rem;">{{ log.timestamp.strftime('%m-%d %H:%M:%S') }}</td>
+                <td style="padding:0.4rem 0.5rem;">{{ log.endpoint }}</td>
+                <td style="padding:0.4rem 0.5rem; color: {{ 'green' if log.status == 'success' else 'red' }};">{{ log.status }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</section>
+{% endblock %}
