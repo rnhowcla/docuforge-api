@@ -1,18 +1,32 @@
-from fastapi import Header, HTTPException, Depends
-from sqlalchemy.orm import Session
-from app.database import get_db
+from functools import wraps
+from flask import request, jsonify, g
+from app.database import SessionLocal
 from app.models import APIKey, Tier
-from app.config import FREE_TIER_LIMIT, PRO_TIER_LIMIT, BUSINESS_TIER_LIMIT
 
-LIMITS = {Tier.FREE: FREE_TIER_LIMIT, Tier.PRO: PRO_TIER_LIMIT, Tier.BUSINESS: BUSINESS_TIER_LIMIT}
+LIMITS = {Tier.FREE: 50, Tier.PRO: 1000, Tier.BUSINESS: 5000}
 
 
-def get_api_key(x_api_key: str = Header(..., alias="X-API-Key"), db: Session = Depends(get_db)) -> APIKey:
-    key_hash = APIKey.hash_key(x_api_key)
-    key = db.query(APIKey).filter(APIKey.key_hash == key_hash).first()
-    if not key:
-        raise HTTPException(status_code=401, detail="Invalid API key")
-    limit = LIMITS.get(key.tier, FREE_TIER_LIMIT)
-    if key.call_count >= limit:
-        raise HTTPException(status_code=429, detail="Rate limit exceeded. Upgrade your plan.")
-    return key
+def require_api_key(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        api_key = request.headers.get("X-API-Key")
+        if not api_key:
+            return jsonify({"detail": "Missing X-API-Key header"}), 422
+
+        db = SessionLocal()
+        key_hash = APIKey.hash_key(api_key)
+        key = db.query(APIKey).filter(APIKey.key_hash == key_hash).first()
+        if not key:
+            db.close()
+            return jsonify({"detail": "Invalid API key"}), 401
+
+        limit = LIMITS.get(key.tier, 50)
+        if key.call_count >= limit:
+            db.close()
+            return jsonify({"detail": "Rate limit exceeded. Upgrade your plan."}), 429
+
+        g.api_key = key
+        g.db = db
+        return f(*args, **kwargs)
+
+    return decorated

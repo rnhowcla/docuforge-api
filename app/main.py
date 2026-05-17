@@ -1,25 +1,19 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from app.database import engine, Base
-from app.routers import api, dashboard
+from flask import Flask, g
+from app.database import engine, Base, SessionLocal
+from app.routers.api import api_bp
+from app.routers.dashboard import web_bp
 
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(
-    title="DocuForge API",
-    description="Document processing API — Excel, CSV, PDF automation for developers",
-    version="1.0.0",
-    docs_url="/docs",
-    redoc_url="/redoc",
-)
+app = Flask(__name__)
+app.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024  # 50MB max upload
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+app.register_blueprint(api_bp)
+app.register_blueprint(web_bp)
 
-app.include_router(api.router)
-app.include_router(dashboard.router)
+
+@app.teardown_appcontext
+def close_db(exception=None):
+    db = g.pop("db", None)
+    if db is not None:
+        db.close()

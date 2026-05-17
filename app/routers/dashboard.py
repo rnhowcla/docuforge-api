@@ -1,26 +1,18 @@
-from fastapi import APIRouter, Request
-from fastapi.responses import HTMLResponse
-from jinja2 import Environment, FileSystemLoader
-from app.config import DOMAIN
+from flask import Blueprint, render_template
 
-router = APIRouter(include_in_schema=False)
-env = Environment(loader=FileSystemLoader("app/templates"))
+web_bp = Blueprint("web", __name__)
 
 
-def render(template: str, **kwargs) -> str:
-    return env.get_template(template).render(**kwargs, domain=DOMAIN)
-
-
-@router.get("/", response_class=HTMLResponse)
+@web_bp.route("/")
 def landing():
-    return render("landing.html")
+    return render_template("landing.html")
 
 
-@router.get("/pricing", response_class=HTMLResponse)
+@web_bp.route("/pricing")
 def pricing():
-    return render("pricing.html")
+    return render_template("pricing.html")
 
 
-@router.get("/docs-page", response_class=HTMLResponse)
+@web_bp.route("/docs-page")
 def docs_page():
-    return render("docs.html")
+    return render_template("docs.html")
