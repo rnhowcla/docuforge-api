@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Your API Key — DocuForge API{% endblock %}
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <h1>Here's Your API Key</h1>
+        <p class="subtitle">Copy it now — it won't be shown again.</p>
+        <div style="background: #1f2937; color: #22c55e; padding: 1.5rem; border-radius: 0.5rem; font-family: monospace; font-size: 1.1rem; word-break: break-all; margin: 1.5rem 0; max-width: 600px; margin-left: auto; margin-right: auto;">
+            {{ api_key }}
+        </div>
+        <p style="color: #6b7280; font-size: 0.9rem;">Prefix: {{ prefix }}... | Name: {{ name }} | Tier: Free (50 calls/month)</p>
+        <div style="margin-top: 2rem;">
+            <a href="/docs-page" class="btn btn-primary">View API Docs</a>
+            <a href="/pricing" class="btn btn-secondary" style="margin-left: 0.5rem;">Upgrade Plan</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

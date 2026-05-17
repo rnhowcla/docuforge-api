@@ -19,6 +19,7 @@ class APIKey(Base):
     key_hash = Column(String, unique=True, nullable=False)
     key_prefix = Column(String, nullable=False)  # First 8 chars for display
     name = Column(String, nullable=False)
+    email = Column(String, nullable=True)
     tier = Column(SAEnum(Tier), default=Tier.FREE, nullable=False)
     call_count = Column(Integer, default=0)
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))

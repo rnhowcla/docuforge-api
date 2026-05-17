@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Get Free API Key — DocuForge API{% endblock %}
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <h1>Get Your Free API Key</h1>
+        <p class="subtitle">50 API calls per month. No credit card required.</p>
+        {% if error %}
+        <p style="color: #dc2626; margin-bottom: 1rem;">{{ error }}</p>
+        {% endif %}
+        <form method="POST" class="register-form">
+            <input type="text" name="name" placeholder="Your name (optional)" class="input-field" />
+            <input type="email" name="email" placeholder="Your email" required class="input-field" />
+            <button type="submit" class="btn btn-primary">Generate My Key</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
