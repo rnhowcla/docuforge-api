@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Excel Clean API - Deduplicate, Trim & Auto-Format Excel Files</title>
+<meta name="description" content="Excel Data Cleaning API — Free tier includes 50 calls/month.">
+<meta name="keywords" content="excel clean api, remove duplicates excel api, trim whitespace excel">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, system-ui, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
+h1 { font-size: 2em; margin-bottom: 10px; color: #1a1a1a; }
+h2 { font-size: 1.4em; margin: 30px 0 10px; color: #2a2a2a; }
+.lead { font-size: 1.15em; color: #555; margin-bottom: 20px; }
+pre { background: #f5f5f5; padding: 15px; border-radius: 5px; overflow-x: auto; font-size: 0.9em; }
+code { font-family: 'Courier New', monospace; }
+ul { padding-left: 20px; margin: 10px 0; }
+li { margin: 5px 0; }
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.btn { display: inline-block; background: #2563eb; color: white; padding: 10px 24px; border-radius: 5px; margin: 20px 0; font-weight: bold; }
+.btn:hover { background: #1d4ed8; text-decoration: none; }
+.endpoints { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
+.card { border: 1px solid #e5e5e5; padding: 20px; border-radius: 8px; }
+.card h3 { margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<h1>Excel Data Cleaning API</h1>
+<p class="lead">Clean and normalize Excel files through a simple REST API. No Excel installation required.</p>
+
+<h2>What You Can Do</h2>
+<ul>
+<li><strong>Remove duplicates</strong> — Automatically find and remove duplicate rows</li>
+<li><strong>Trim whitespace</strong> — Clean up extra spaces, tabs, and line breaks</li>
+<li><strong>Auto-format</strong> — Bold headers, auto-fit columns, add borders</li>
+</ul>
+
+<h2>API Example</h2>
+<pre><code>curl -X POST http://[2409:893d:dcd:8c60:3058:eb94:1d9:c7fa]:5000/api/v1/excel/clean \
+  -H "X-API-Key: YOUR_KEY" \
+  -F "file=@dirty_data.xlsx" -o cleaned.xlsx</code></pre>
+
+<h2>Pricing</h2>
+<ul>
+<li><strong>Free</strong> — 50 calls/month</li>
+<li><strong>Pro</strong> — 1,000 calls/month ($9)</li>
+<li><strong>Business</strong> — 5,000 calls/month ($29)</li>
+</ul>
+
+<p><a href="http://[2409:893d:dcd:8c60:3058:eb94:1d9:c7fa]:5000/register" class="btn">Get Your Free API Key →</a></p>
+<hr style="margin-top: 40px;">
+<footer>
+<small><a href="/">DocuForge API</a> | <a href="https://github.com/rnhowcla/docuforge-api">GitHub</a></small>
+</footer>
+<!-- SEO: excel clean api, remove duplicates excel api, trim whitespace excel -->
+</body>
+</html>
