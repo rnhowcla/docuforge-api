@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSV Converter API - Convert CSV to Excel & Clean CSV Data</title>
+<meta name="description" content="Convert CSV to Excel and clean CSV data programmatically. REST API for CSV file processing.">
+<meta name="keywords" content="csv converter api, csv to excel api, csv cleaning api">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,system-ui,sans-serif;line-height:1.6;color:#333;max-width:800px;margin:0 auto;padding:20px}
+h1{font-size:2em;margin-bottom:10px;color:#1a1a1a}
+h2{font-size:1.4em;margin:30px 0 10px;color:#2a2a2a}
+.lead{font-size:1.15em;color:#555;margin-bottom:20px}
+pre{background:#f5f5f5;padding:15px;border-radius:5px;overflow-x:auto;font-size:0.9em}
+code{font-family:'Courier New',monospace}
+ul{padding-left:20px;margin:10px 0}
+li{margin:5px 0}
+a{color:#2563eb;text-decoration:none}
+a:hover{text-decoration:underline}
+.btn{display:inline-block;background:#2563eb;color:#fff;padding:10px 24px;border-radius:5px;margin:20px 0;font-weight:bold}
+.btn:hover{background:#1d4ed8;text-decoration:none}
+hr{margin:40px 0}
+</style>
+</head>
+<body>
+<h1>CSV Converter API - Convert CSV to Excel & Clean CSV Data</h1>
+
+<h2>CSV File Processing API</h2>
+<p class="lead">Convert and clean CSV files through simple REST API calls. No need to open Excel or install any desktop software.</p>
+
+<h3>CSV to Excel</h3>
+<pre>curl -X POST http://[2409:893d:dcd:8c60:3058:eb94:1d9:c7fa]:5000/api/v1/csv/to-excel \
+  -H "X-API-Key: YOUR_KEY" \
+  -F "file=@data.csv" -o output.xlsx</pre>
+
+<h3>Clean CSV Data</h3>
+<pre>curl -X POST http://[2409:893d:dcd:8c60:3058:eb94:1d9:c7fa]:5000/api/v1/csv/clean \
+  -H "X-API-Key: YOUR_KEY" \
+  -F "file=@raw.csv" -o cleaned.csv</pre>
+
+<p><a href="http://[2409:893d:dcd:8c60:3058:eb94:1d9:c7fa]:5000/register" class="btn">Get Free API Key →</a></p>
+<hr>
+<footer><a href="/">DocuForge API Home</a> | <a href="https://github.com/rnhowcla/docuforge-api">GitHub</a> | <a href="http://[2409:893d:dcd:8c60:3058:eb94:1d9:c7fa]:5000/register">Get API Key</a></footer>
+</body>
+</html>
