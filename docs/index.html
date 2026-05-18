@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DocuForge API - Document Processing Made Simple</title>
+<meta name="description" content="Free REST API for processing Excel, CSV, and PDF files. 50 calls/month free.">
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; }
+.hero { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 80px 20px; text-align: center; }
+.hero h1 { font-size: 2.8em; margin-bottom: 20px; }
+.hero p { font-size: 1.2em; max-width: 700px; margin: 0 auto 30px; opacity: 0.9; }
+.btn { display: inline-block; padding: 14px 32px; border-radius: 6px; text-decoration: none; font-weight: 600; margin: 5px; }
+.btn-primary { background: white; color: #667eea; }
+.btn-secondary { background: transparent; border: 2px solid white; color: white; }
+.features { max-width: 1100px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.feature { background: #f8f9fa; border-radius: 10px; padding: 30px; }
+.feature h3 { margin-bottom: 15px; color: #667eea; }
+.endpoints { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #eee; }
+th { background: #f8f9fa; font-weight: 600; }
+code { background: #f1f3f5; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; }
+pre { background: #f8f9fa; padding: 20px; border-radius: 8px; overflow-x: auto; }
+.footer { text-align: center; padding: 40px; color: #666; background: #f8f9fa; margin-top: 60px; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>DocuForge API</h1>
+  <p>Transform Excel, CSV, and PDF files through a clean REST API. No heavy libraries, no Excel installation needed.</p>
+  <a href="http://[2409:893d:dcd:8c60:3058:eb94:1d9:c7fa]:5000/register" class="btn btn-primary">Try Free</a>
+  <a href="https://github.com/rnhowcla/docuforge-api" class="btn btn-secondary">GitHub</a>
+</div>
+<div class="features">
+  <div class="feature"><h3>Excel Processing</h3><p>Clean, deduplicate, trim whitespace, auto-format columns, and convert Excel files to CSV with a single API call.</p></div>
+  <div class="feature"><h3>CSV Tools</h3><p>Convert CSV to Excel, remove empty rows, trim cells, and normalize encoding automatically.</p></div>
+  <div class="feature"><h3>PDF Operations</h3><p>Extract text content, read metadata (pages, author, title), and merge multiple PDFs into one.</p></div>
+</div>
+<div class="endpoints">
+  <h2>API Endpoints</h2>
+  <table><tr><th>Method</th><th>Endpoint</th><th>Description</th></tr>
+  <tr><td>POST</td><td><code>/api/v1/excel/clean</code></td><td>Clean Excel data</td></tr>
+  <tr><td>POST</td><td><code>/api/v1/excel/to-csv</code></td><td>Convert Excel to CSV</td></tr>
+  <tr><td>POST</td><td><code>/api/v1/excel/format</code></td><td>Auto-format Excel</td></tr>
+  <tr><td>POST</td><td><code>/api/v1/csv/to-excel</code></td><td>Convert CSV to Excel</td></tr>
+  <tr><td>POST</td><td><code>/api/v1/csv/clean</code></td><td>Clean CSV data</td></tr>
+  <tr><td>POST</td><td><code>/api/v1/pdf/extract-text</code></td><td>Extract PDF text</td></tr>
+  <tr><td>POST</td><td><code>/api/v1/pdf/metadata</code></td><td>Get PDF metadata</td></tr>
+  <tr><td>POST</td><td><code>/api/v1/pdf/merge</code></td><td>Merge PDFs</td></tr>
+  <tr><td>GET</td><td><code>/api/v1/me</code></td><td>Check API key</td></tr>
+  </table>
+</div>
+<div class="footer">
+  <p>Built with Python Flask + SQLAlchemy | <a href="https://github.com/rnhowcla/docuforge-api">Open Source (MIT)</a> | <a href="http://[2409:893d:dcd:8c60:3058:eb94:1d9:c7fa]:5000/pricing">Pricing</a></p>
+</div>
+</body>
+</html>
